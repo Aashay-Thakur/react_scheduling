@@ -11,7 +11,10 @@
 		"baseUrl": "./",
 		"paths": {
 			"@barrel": ["src/components/barrel.ts"],
-			"@assets/*": ["src/assets/*"]
+			"@assets/*": ["src/assets/*"],
+			"@config/*": ["src/config/*"],
+			"@utils/*": ["src/utils/*"],
+			"@hooks/*": ["src/hooks/*"]
 		},
 
 		/* Bundler mode */

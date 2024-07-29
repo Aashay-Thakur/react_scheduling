@@ -9,7 +9,13 @@ export default defineConfig({
 		alias: {
 			"@barrel": "/src/components/barrel.ts",
 			"@assets": "/src/assets/",
+			"@utils": "/src/utils/",
+			"@config": "/src/config/",
+			"@hooks": "/src/hooks/",
 		},
+	},
+	build: {
+		sourcemap: true,
 	},
 });
 

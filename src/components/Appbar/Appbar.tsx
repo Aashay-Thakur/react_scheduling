@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 
+import { useAuth } from "@hooks/useAuthStatus";
 import { AnalyticsSharp } from "@mui/icons-material";
 import { AppBar, Box, Button, Toolbar, Typography } from "@mui/material";
 
@@ -7,6 +8,7 @@ const Appbar = () => {
 	const location = useLocation();
 
 	const isPathOnAuth = location.pathname === "/login" || location.pathname === "/signup";
+	const user = useAuth();
 
 	const pages = [
 		{ name: "CPU", to: "/cpu" },
@@ -40,9 +42,19 @@ const Appbar = () => {
 									</Link>
 								))}
 							</Box>
-							<Link to="/login" style={{ marginLeft: "auto", color: "inherit", textDecoration: "none" }}>
-								<Button color="inherit">Login</Button>
-							</Link>
+							{user ? (
+								<Link
+									to="/logout"
+									style={{ marginLeft: "auto", color: "inherit", textDecoration: "none" }}>
+									<Button color="inherit">Logout</Button>
+								</Link>
+							) : (
+								<Link
+									to="/login"
+									style={{ marginLeft: "auto", color: "inherit", textDecoration: "none" }}>
+									<Button color="inherit">Login</Button>
+								</Link>
+							)}
 						</>
 					)}
 				</Toolbar>
