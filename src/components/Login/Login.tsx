@@ -1,16 +1,25 @@
 import { FirebaseError } from "firebase/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { CustomLink } from "@barrel";
-import { auth } from "@config/firebase.config";
+import { auth, googleProvider } from "@config/firebase.config";
 import { Google } from "@mui/icons-material";
 import { Button, Divider, Paper, Stack, TextField, Typography } from "@mui/material";
 
 const errorMessages: Record<string, string> = {
 	"auth/invalid-email": "Invalid email.",
 	"auth/invalid-credential": "Invalid credentials.",
+};
+
+const errorHandler = (e: unknown) => {
+	if (e instanceof FirebaseError) {
+		console.error(e.code);
+		return errorMessages[e.code] || "An error occurred";
+	}
+	console.error(e);
+	return "An error occurred";
 };
 
 const Login = () => {
@@ -33,13 +42,16 @@ const Login = () => {
 			setError("");
 			navigate("/cpu");
 		} catch (e: unknown) {
-			if (e instanceof FirebaseError) {
-				console.error(e.code);
-				setError(errorMessages[e.code] || "An error occurred");
-			} else {
-				console.error(e);
-				setError("An error occurred");
-			}
+			setError(errorHandler(e));
+		}
+	};
+
+	const signInWithGoogle = async () => {
+		try {
+			await signInWithPopup(auth, googleProvider);
+			navigate("/cpu");
+		} catch (e: unknown) {
+			setError(errorHandler(e));
 		}
 	};
 
@@ -93,7 +105,7 @@ const Login = () => {
 						direction="row"
 						spacing={1}
 						useFlexGap>
-						<Button variant="outlined" startIcon={<Google />}>
+						<Button onClick={signInWithGoogle} variant="outlined" startIcon={<Google />}>
 							<Typography sx={{ ml: 1 }} variant="caption">
 								With Google
 							</Typography>
