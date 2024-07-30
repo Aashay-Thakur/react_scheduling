@@ -1,6 +1,5 @@
 export { CpuScheduling } from "./CpuScheduling/CpuScheduling";
 export { DiskScheduling } from "./DiskScheduling/DiskScheduling";
-export { HomeTabs } from "./HomeTabs/HomeTabs";
 /* auth components */
 export { Login } from "./Login/Login";
 export { Signup } from "./Signup/Signup";

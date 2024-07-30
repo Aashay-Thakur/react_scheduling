@@ -1,0 +1,72 @@
+[
+	{
+		"id": 1,
+		"name": "P1",
+		"arrivalTime": 0,
+		"burstTime": 5,
+		"priority": 3
+	},
+	{
+		"id": 2,
+		"name": "P2",
+		"arrivalTime": 2,
+		"burstTime": 3,
+		"priority": 1
+	},
+	{
+		"id": 3,
+		"name": "P3",
+		"arrivalTime": 3,
+		"burstTime": 8,
+		"priority": 4
+	},
+	{
+		"id": 4,
+		"name": "P4",
+		"arrivalTime": 5,
+		"burstTime": 6,
+		"priority": 2
+	},
+	{
+		"id": 5,
+		"name": "P5",
+		"arrivalTime": 6,
+		"burstTime": 4,
+		"priority": 5
+	},
+	{
+		"id": 6,
+		"name": "P6",
+		"arrivalTime": 7,
+		"burstTime": 7,
+		"priority": 3
+	},
+	{
+		"id": 7,
+		"name": "P7",
+		"arrivalTime": 8,
+		"burstTime": 2,
+		"priority": 1
+	},
+	{
+		"id": 8,
+		"name": "P8",
+		"arrivalTime": 9,
+		"burstTime": 9,
+		"priority": 4
+	},
+	{
+		"id": 9,
+		"name": "P9",
+		"arrivalTime": 10,
+		"burstTime": 5,
+		"priority": 2
+	},
+	{
+		"id": 10,
+		"name": "P10",
+		"arrivalTime": 11,
+		"burstTime": 6,
+		"priority": 5
+	}
+]
